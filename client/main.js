@@ -2,6 +2,7 @@ let baseUrl = 'http://localhost:3000'
 
 $(document).ready(function () {
     console.log('masuk');
+    
 });
 
 function login(event) {
@@ -16,11 +17,38 @@ function login(event) {
         data: { email, password }
     })
         .done((data) => {
-            // console.log(data, '<<<<<<< Hasil console');
+            // console.log(data, '<<<<<<< berhasil login');
             localStorage.setItem('token', data.token);
         })
         .fail(err => {
-            console.log(err, '<<<<<< err');
+            console.log(err.responseJSON.message, '<<<<<< err');
+        })
+        .always(() => {
+            $('#email').val('')
+            $('#password').val('')
+        })
+}
+
+function register(event) {
+    event.preventDefault()
+    let email = $('#emailRegister').val()
+    let password = $('#passwordRegister').val()
+    console.log(email, password, '<<<<<< tes');
+
+    $.ajax({
+        method: 'post',
+        url: baseUrl + '/users/register',
+        data: { email, password }
+    })
+        .done((data) => {
+            $('#register-status').text('Successfully register ^^')
+        })
+        .fail(err => {
+            $('#register-status').text(err.responseJSON.message)
+        })
+        .always(() => {
+            $('#email').val('')
+            $('#password').val('')
         })
 }
 
