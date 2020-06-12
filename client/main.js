@@ -33,7 +33,7 @@ function onSignIn(googleUser) {
     })
         .done(data => {
             console.log(data, '<<<<< data signIn');
-            localStorage.setItem('token', data.token)
+            localStorage.setItem('token', data.data.token)
         })
         .fail(err => {
             console.log(err.response.JSON.errors, '<<<< err signIn');
