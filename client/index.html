@@ -18,7 +18,7 @@
 
     <section>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar-custom">
-            <a class="navbar-brand" href="/"><i class="far fa-check-square"></i> Books</a>
+            <a class="navbar-brand" href="/"><i class="fas fa-book"></i> Books</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,8 +53,31 @@
                         <input type="password" class="form-control" name="password" id="password" required
                             placeholder="12345678">
                     </div>
+                    <button type="submit" class="btn btn-outline-success mb-2">Login</button>
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    <button type="submit" class="btn btn-outline-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register -->
+
+    <section class="register-page">
+        <div class="row justify-content-center mt-5">
+            <div class="col-4">
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="text" class="form-control" name="email" id="emailRegister"
+                            placeholder="e.g: foobar@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password :</label>
+                        <input type="password" class="form-control" name="password" id="passwordRegister" required
+                            placeholder="12345678">
+                    </div>
+                    <button type="submit" class="btn btn-outline-success mb-2">Register</button>
+                    <p id="register-status"></p>
                 </form>
             </div>
         </div>
